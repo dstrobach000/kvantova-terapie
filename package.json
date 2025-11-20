@@ -22,5 +22,9 @@
     "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "16.0.2"
+  },
+  "volta": {
+    "node": "24.11.1",
+    "npm": "11.6.2"
   }
 }

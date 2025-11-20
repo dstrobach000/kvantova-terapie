@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* Hide all video controls globally - applies before React loads */
+video {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-overlay-enclosure {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,3 +39,339 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  color-scheme: light;
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --accent: #0ea5e9;
+  --accent-soft: rgba(14, 165, 233, 0.06);
+  --text: #e5e7eb;
+  --text-soft: #9ca3af;
+  --border-subtle: rgba(148, 163, 184, 0.25);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1e293b 0, #020617 60%, #020617 100%);
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+}
+
+/* Generic section layout */
+
+.section {
+  padding: 4rem 1.5rem;
+}
+
+.section--hero {
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+}
+
+.section--accent {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(56, 189, 248, 0.02));
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section--meta {
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  background: #020617;
+}
+
+.section__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Headings & text */
+
+.section__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  margin-bottom: 0.75rem;
+}
+
+.section__title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+}
+
+.section__subtitle {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.section__text {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+.section__link {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.section__link:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+
+.section__list {
+  margin: 1.5rem 0 1rem;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.section__list--numbered {
+  list-style: decimal;
+}
+
+/* Testimonials */
+
+.testimonial {
+  margin: 1.5rem 0;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), rgba(15, 23, 42, 0.8));
+}
+
+.testimonial blockquote {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Practical info grid */
+
+.section__grid {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .section__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Video placeholders */
+
+.section--video {
+  padding: 3rem 1.5rem;
+}
+
+.video-placeholder {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  padding: 3rem 1.5rem;
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(248, 250, 252, 0.08), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.35), transparent 55%),
+    radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.2), transparent 55%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.video-placeholder span {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text);
+}
+
+/* Meta / SEO line */
+
+.section__meta {
+  margin: 0;
+  opacity: 0.7;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* Simple responsiveness tweaks */
+
+@media (max-width: 640px) {
+  .section {
+    padding-inline: 1.25rem;
+  }
+
+  .video-placeholder {
+    padding: 2.25rem 1.25rem;
+  }
+}
+
+/* Logo dots - ping-pong pulsing animations */
+.animate-dot-pulse-left {
+  animation: dotPulseLeft 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-dot-pulse-right {
+  animation: dotPulseRight 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes dotPulseLeft {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes dotPulseRight {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+/* Logo dot glow animations (synchronized with pulse) */
+.animate-dot-glow-left {
+  animation: dotGlowLeft 3s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+.animate-dot-glow-right {
+  animation: dotGlowRight 3s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes dotGlowLeft {
+  0% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes dotGlowRight {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+/* Button size pulse animation */
+.animate-button-pulse {
+  animation: buttonPulse 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+/* Glow blur pulse animation for button background */
+.animate-glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+/* Hide all video controls and overlays */
+video.video-no-controls {
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* WebKit controls */
+video.video-no-controls::-webkit-media-controls,
+video.video-no-controls::-webkit-media-controls-enclosure,
+video.video-no-controls::-webkit-media-controls-panel,
+video.video-no-controls::-webkit-media-controls-play-button,
+video.video-no-controls::-webkit-media-controls-start-playback-button,
+video.video-no-controls::-webkit-media-controls-overlay-play-button,
+video.video-no-controls::-webkit-media-controls-overlay-enclosure {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Firefox controls */
+video.video-no-controls::-moz-media-controls,
+video.video-no-controls::-moz-media-controls-panel,
+video.video-no-controls::-moz-media-controls-play-button,
+video.video-no-controls::-moz-media-controls-overlay {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Pseudo-elements and backdrop */
+video.video-no-controls::before,
+video.video-no-controls::after,
+video.video-no-controls::backdrop {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
