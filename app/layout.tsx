@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Amaranth } from "next/font/google";
+import { Andika } from "next/font/google";
 import "./globals.css";
 
-const amaranth = Amaranth({
+const andika = Andika({
   weight: ["400", "700"],
-  variable: "--font-amaranth",
+  variable: "--font-andika",
   subsets: ["latin"],
 });
 
@@ -141,7 +141,7 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body
-        className={`${amaranth.variable} antialiased`}
+        className={`${andika.variable} antialiased`}
       >
         <script
           type="application/ld+json"
