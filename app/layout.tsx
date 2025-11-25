@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Amaranth } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const amaranth = Amaranth({
+  weight: ["400", "700"],
+  variable: "--font-amaranth",
   subsets: ["latin"],
 });
 
@@ -16,6 +12,9 @@ export const metadata: Metadata = {
   title: {
     default: "Buněčné kvantové léčení (CRQH) Brno | Renata Sasová | Kvantová terapie",
     template: "%s | Renata Sasová - Kvantová terapie Brno"
+  },
+  icons: {
+    icon: "/favicon.png",
   },
   description: "Buněčné kvantové léčení (CRQH) v Brně s Renatou Sasovou. Moderní terapeutická metoda pro obnovu rovnováhy těla, mysli a duše. Pomáháme s neplodností, úzkostmi, depresemi, psychosomatickými obtížemi a dalšími bloky. Ošetření v Brně - Královo Pole.",
   keywords: [
@@ -142,7 +141,7 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${amaranth.variable} antialiased`}
       >
         <script
           type="application/ld+json"
