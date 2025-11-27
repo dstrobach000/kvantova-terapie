@@ -9,22 +9,29 @@ interface GlowButtonProps {
 }
 
 export default function GlowButton({ link, className = "", children, smallGlow = false, color = "pink" }: GlowButtonProps) {
-  const isGreen = color === "green";
-  const bgColor = isGreen ? "bg-green-400" : "bg-pink-400";
-  const hoverColor = isGreen ? "hover:bg-green-500" : "hover:bg-pink-500";
-  const shadowColor = isGreen ? "shadow-green-300/30" : "shadow-pink-300/30";
-  const glowColor = isGreen ? "bg-green-300" : "bg-pink-200";
+  const buttonColor = "#88798a";
+  const glowColor = "rgba(136, 121, 138, 0.4)";
   
   const glowClasses = smallGlow
-    ? `absolute inset-0 -m-1 rounded-full ${glowColor} blur-md opacity-40 animate-glow-pulse pointer-events-none`
-    : `absolute inset-0 -m-2 rounded-full ${glowColor} blur-xl opacity-40 animate-glow-pulse pointer-events-none`;
+    ? `absolute inset-0 -m-1 rounded-full blur-md opacity-40 animate-glow-pulse pointer-events-none`
+    : `absolute inset-0 -m-2 rounded-full blur-xl opacity-40 animate-glow-pulse pointer-events-none`;
   
   return (
     <a
       href={link}
-      className={`relative isolate inline-block rounded-full ${bgColor} font-semibold text-white shadow-lg ${shadowColor} ${hoverColor} transition-colors animate-button-pulse ${className}`}
+      className={`relative isolate inline-block rounded-full font-semibold text-white shadow-lg transition-colors animate-button-pulse ${className}`}
+      style={{ 
+        backgroundColor: buttonColor,
+        boxShadow: `0 10px 15px -3px ${glowColor}, 0 4px 6px -2px ${glowColor}`
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = "#7a6b7d";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = buttonColor;
+      }}
     >
-      <span className={glowClasses} />
+      <span className={glowClasses} style={{ backgroundColor: glowColor }} />
       <span className="relative inline-block">{children}</span>
     </a>
   );

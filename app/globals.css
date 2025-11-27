@@ -17,13 +17,13 @@ video::-webkit-media-controls-overlay-enclosure {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-andika: var(--font-andika);
+  --font-amaranth: var(--font-amaranth);
 }
 
 body {
   margin: 0;
   font-family: var(--font-andika), sans-serif;
-  background: linear-gradient(to bottom, #FCE7F3 0%, #F8F4E6 40%, #F5E6D3 100%);
+  background: #fefcf1;
   color: #4A5568;
 }
 
