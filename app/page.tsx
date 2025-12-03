@@ -264,7 +264,7 @@ export default function Home() {
                   href="tel:+420739445520"
                   className="font-medium text-[#88798a] hover:underline underline-offset-4"
                 >
-                  739 44 55 20
+                  739 445 520
                 </a>
                 <br />
                 IČO: 74597906
@@ -275,11 +275,22 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-800">Ceník:</h3>
+              <h3 className="text-sm font-semibold text-slate-800">Ceník</h3>
               <p className="mt-2">
-                3 000 Kč za jedno sezení (cca 2 hodiny).
+                3 000 Kč za jedno sezení (cca 2 hodiny)
+                <br />
+                Je možné si objednat i dárkový poukaz.
               </p>
             </div>
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Image
+              src="/images/poukaz.png"
+              alt="Dárkový poukaz"
+              width={600}
+              height={400}
+              className="rounded-lg object-contain max-w-full"
+            />
           </div>
         </div>
       </section>
